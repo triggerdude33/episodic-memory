@@ -203,5 +203,11 @@ def read_command_line():
         default=None,
         help="A list of splits to remove empty queries from. Valid values for the list are: ['train', 'val']",  # noqa
     )
+    parser.add_argument(
+        "--fine_tune",
+        type=int,
+        default=0,
+        help="Determine wether the model should load a previous checkpoint before starting the training",
+    )
     configs = parser.parse_args()
     return configs, parser

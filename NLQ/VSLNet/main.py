@@ -109,6 +109,13 @@ def main(configs, parser):
         )
         print("start training...", flush=True)
         global_step = 0
+
+        # If fine-tuning flag is set, load the latest checkpoint before training
+        if configs.fine_tune == 1:
+            filename = get_last_checkpoint(model_dir, suffix="t7")
+            model.load_state_dict(torch.load(filename))
+            print("Observe: Fine-tuning flag turned on. Load of pretrained model complete")
+
         for epoch in range(configs.epochs):
             model.train()
             for data in tqdm(
