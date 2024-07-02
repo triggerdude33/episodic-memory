@@ -114,7 +114,7 @@ def main(configs, parser):
         if configs.fine_tune == 1:
             filename = get_last_checkpoint(model_dir, suffix="t7")
             model.load_state_dict(torch.load(filename))
-            print("Observe: Fine-tuning flag turned on. Load of pretrained model complete")
+            print("Observe: Fine-tuning flag turned on. Load of pretrained weights complete")
 
         for epoch in range(configs.epochs):
             model.train()
