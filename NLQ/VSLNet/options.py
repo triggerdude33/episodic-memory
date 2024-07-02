@@ -207,7 +207,7 @@ def read_command_line():
         "--fine-tune",
         type=int,
         default=0,
-        help="Determine wether the model should load a previous checkpoint before starting the training"
+        help="Determine wether the model should load a previous checkpoint before starting the training",
     )
     configs = parser.parse_args()
     return configs, parser
